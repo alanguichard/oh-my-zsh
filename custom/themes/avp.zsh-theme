@@ -5,7 +5,7 @@ PS1=\
 ' '\
 '%B%F{blue}%~%F{reset}%b'\
 '%F{red}$(git_prompt_string)%F{reset}'\
-'%(!,#,») '
+'%(!,#,) '
 
 RPS1=\
 '%(1?,%F{red}[%?]%F{reset} ,)'\
@@ -13,12 +13,15 @@ RPS1=\
 
 GIT_PROMPT_SYMBOL=""
 GIT_PROMPT_PREFIX=" "
-GIT_PROMPT_SEPARATOR="%{$fg[red]%} %{$reset_color%}"
-GIT_PROMPT_SUFFIX="%{$fg[red]%} %{$reset_color%}"
+GIT_PROMPT_SEPARATOR=" "
+GIT_PROMPT_SUFFIX=""
 GIT_PROMPT_EQUAL="%{$fg[blue]%}‖%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[green]%}↑%{$reset_color%}"
 GIT_PROMPT_BEHIND="%{$fg[cyan]%}↓%{$reset_color%}"
 GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚔%{$reset_color%}"
+GIT_PROMPT_REBASING="%{$fg_bold[magenta]%}R%{$reset_color%}"
+GIT_PROMPT_CHERRYPICKING="%{$fg_bold[magenta]%}C%{$reset_color%}"
+GIT_PROMPT_BISECTING="%{$fg_bold[magenta]%}B%{$reset_color%}"
 GIT_PROMPT_STASHED="%{$fg_bold[magenta]%}∫%{$reset_color%}"
 GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
 GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●%{$reset_color%}"

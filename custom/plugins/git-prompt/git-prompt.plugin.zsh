@@ -12,6 +12,9 @@ GIT_PROMPT_EQUAL="%{$fg[blue]%}=%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"
 GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"
 GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
+GIT_PROMPT_REBASING="%{$fg_bold[magenta]%}R%{$reset_color%}"
+GIT_PROMPT_CHERRYPICKING="%{$fg_bold[magenta]%}C%{$reset_color%}"
+GIT_PROMPT_BISECTING="%{$fg_bold[magenta]%}B%{$reset_color%}"
 GIT_PROMPT_STASHED="%{$fg_bold[magenta]%}S%{$reset_color%}"
 GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
 GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●%{$reset_color%}"
@@ -53,6 +56,21 @@ parse_git_state() {
   local GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
   if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
     GIT_STATE=$GIT_STATE$GIT_PROMPT_MERGING
+    DIRTY=1
+  fi
+
+  if [ -n "$GIT_DIR" ] && [ -d "${GIT_DIR}/rebase-merge" ]; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_REBASING
+    DIRTY=1
+  fi
+
+  if [ -n "$GIT_DIR" ] && [ -f "${GIT_DIR}/CHERRY_PICK_HEAD" ]; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_CHERRYPICKING
+    DIRTY=1
+  fi
+
+  if [ -n "$GIT_DIR" ] && [ -f "${GIT_DIR}/BISECT_LOG" ]; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_BISECTING
     DIRTY=1
   fi
 
