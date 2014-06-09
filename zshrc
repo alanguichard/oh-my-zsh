@@ -12,6 +12,7 @@ plugins+=(git-prompt)
 plugins+=(zsh-syntax-highlighting)
 plugins+=(npm)
 plugins+=(mvn)
+plugins+=(mvn-color)
 plugins+=(sublime)
 plugins+=(colored-man)
 
