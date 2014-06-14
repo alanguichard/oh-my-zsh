@@ -46,6 +46,7 @@ alias ip="ifconfig | grep 'inet '"
 alias copy="xclip -selection clipboard"
 alias v="vim"
 alias m="man"
+alias cal='cal | grep --before-context 6 --after-context 6 --color -e " $(date +%e)" -e "^$(date +%e)"'
 
 if [[ $(uname) = 'Linux' ]]; then
   alias open="xdg-open"
