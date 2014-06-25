@@ -16,12 +16,18 @@ alias ufsafs="umount ~/afs"
 CMU="$HOME/Dropbox/cmu/"
 PROGRAMMING="$HOME/Dropbox/programming/"
 PEGASUS="$HOME/Dropbox/programming/pegasus/"
+GEMINI="$HOME/Dropbox/programming/gemini/"
 VIM="$HOME/.vim"
 
 alias cmu="~CMU"
 alias gigastorm="cd ~/Dropbox/GigaStorm"
 alias programming="~PROGRAMMING"
 alias pegasus="~PEGASUS"
+alias gemini="~GEMINI"
+
+pgssh() {
+  ssh -A ubuntu@${1}
+}
 
 # Android aliases
 alias droidconnect="sudo mtpfs -o allow_other /media/nexus4"

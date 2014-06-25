@@ -25,6 +25,7 @@ bindkey '^K' kill-line
 alias sl="ls"
 alias la="ls -A"
 alias ll="ls -l"
+alias lh="ls -lh"
 alias l1="ls -1"
 alias l="ls"
 
