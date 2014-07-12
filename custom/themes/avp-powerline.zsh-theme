@@ -73,7 +73,7 @@ prompt_git() {
   GIT_PROMPT_PREFIX="%{$fg[black]%}"
   GIT_PROMPT_SEPARATOR=" "
   GIT_PROMPT_SUFFIX=""
-  GIT_PROMPT_EQUAL="%{$fg[blue]%}‖"
+  GIT_PROMPT_EQUAL="%{$fg_bold[blue]%}‖"
   GIT_PROMPT_AHEAD="%{$fg[green]%}↑"
   GIT_PROMPT_BEHIND="%{$fg[magenta]%}↓"
   GIT_PROMPT_MERGING="%{$fg[white]%}⚔"
@@ -82,7 +82,7 @@ prompt_git() {
   GIT_PROMPT_BISECTING="%{$fg[white]%}✂"
   GIT_PROMPT_STASHED="%{$fg[white]%}∫"
   GIT_PROMPT_UNTRACKED="%{$fg[red]%}●"
-  GIT_PROMPT_MODIFIED="%{$fg[yellow]%}●"
+  GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●"
   GIT_PROMPT_STAGED="%{$fg[green]%}●"
 
   local git_where="$(parse_git_branch)"
