@@ -27,7 +27,7 @@ prompt_segment() {
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+    echo -n "%{%k%b%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{%k%f%b%}"
   else
     echo -n "%{%k%}"
   fi
@@ -50,12 +50,12 @@ prompt_context() {
 # Git: branch/detached head, dirty status
 prompt_git() {
   GIT_PROMPT_SYMBOL=""
-  GIT_PROMPT_PREFIX="%{$fg[black]%}"
+  GIT_PROMPT_PREFIX="%{$fg_bold[black]%}"
   GIT_PROMPT_SEPARATOR=" "
   GIT_PROMPT_SUFFIX=""
   GIT_PROMPT_EQUAL="%{$fg_bold[blue]%}‖"
   GIT_PROMPT_AHEAD="%{$fg[green]%}↑"
-  GIT_PROMPT_BEHIND="%{$fg[cyan]%}↓"
+  GIT_PROMPT_BEHIND="%{$fg[magenta]%}↓"
   GIT_PROMPT_MERGING="%{$fg[white]%}⚔"
   GIT_PROMPT_REBASING="%{$fg[white]%}♞"
   GIT_PROMPT_CHERRYPICKING="%{$fg[white]%}©"
@@ -64,11 +64,12 @@ prompt_git() {
   GIT_PROMPT_UNTRACKED="%{$fg[red]%}●"
   GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●"
   GIT_PROMPT_STAGED="%{$fg[green]%}●"
+  GIT_PROMPT_CLEAN="%{$fg_bold[blue]%}✓"
 
   local git_where="$(parse_git_branch)"
   local branch="${git_where#(refs/heads/|tags/)}"
-  [[ -n "$branch" ]] && prompt_segment yellow black "$branch"
-  [[ -n "$branch" ]] && prompt_segment black default "$(parse_git_state)"
+  [[ -n "$branch" ]] && prompt_segment white black "$branch"
+  [[ -n "$branch" ]] && prompt_segment blue default "$(parse_git_state) "
 }
 
 # Dir: current working directory
@@ -95,8 +96,9 @@ build_prompt() {
   prompt_context
   prompt_dir
   prompt_git
-  [[ -z "$(parse_git_branch)" ]] && prompt_end
-  [[ -n "$(parse_git_branch)" ]] && echo -ne "%{%k%f%}"
+  prompt_end
+  #[[ -z "$(parse_git_branch)" ]] && prompt_end
+  #[[ -n "$(parse_git_branch)" ]] && echo -ne "%{%k%f%}"
 }
 
 build_right_prompt() {
