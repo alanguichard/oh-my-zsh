@@ -87,7 +87,7 @@ prompt_git() {
 
   local git_where="$(parse_git_branch)"
   local branch="${git_where#(refs/heads/|tags/)}"
-  [[ -n "$branch" ]] && prompt_segment white black "$branch"
+  [[ -n "$branch" ]] && prompt_segment red black "$branch"
   [[ -n "$branch" ]] && prompt_segment black default "$(parse_git_state)"
   #[[ -n "$branch" ]] && prompt_segment red black "$(git_prompt_string)"
 }
