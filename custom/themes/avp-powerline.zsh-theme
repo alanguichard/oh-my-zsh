@@ -43,7 +43,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment blue white "$user@%m"
+    prompt_segment yellow black "$user@%m"
   fi
 }
 
@@ -68,7 +68,7 @@ prompt_git() {
 
   local git_where="$(parse_git_branch)"
   local branch="${git_where#(refs/heads/|tags/)}"
-  [[ -n "$branch" ]] && prompt_segment white black "$branch"
+  [[ -n "$branch" ]] && prompt_segment blue white "$branch"
   [[ -n "$branch" ]] && prompt_segment blue default "$(parse_git_state) "
 }
 
