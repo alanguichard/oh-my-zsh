@@ -39,6 +39,10 @@ alias tigs="tig status"
 alias amend="git commit --amend"
 alias commit="git commit"
 alias pull="git pull"
+groot() {
+  local groot_dir="$(git rev-parse --show-toplevel)"
+  [[ -n ${groot_dir} ]] && cd groot_dir
+}
 
 # Miscellaneous aliases
 alias more="less"

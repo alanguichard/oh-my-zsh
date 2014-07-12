@@ -36,7 +36,7 @@ prompt_segment() {
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
   [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
   if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    echo -n " %{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
+    echo -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
   else
     echo -n "%{$bg%}%{$fg%} "
   fi
@@ -58,12 +58,12 @@ prompt_end() {
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
-# Context: user@hostname (who am I and where am I)'&&DROP USER;
+# Context: user@hostname (who am I and where am I)
 prompt_context() {
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment green black "%(!.%{%F{yellow}%}.)$user@%m"
+    prompt_segment blue white "%(!.%{%F{black}%}.)$user@%m"
   fi
 }
 
@@ -87,14 +87,14 @@ prompt_git() {
 
   local git_where="$(parse_git_branch)"
   local branch="${git_where#(refs/heads/|tags/)}"
-  [[ -n "$branch" ]] && prompt_segment red black "$branch"
+  [[ -n "$branch" ]] && prompt_segment blue white "$branch"
   [[ -n "$branch" ]] && prompt_segment black default "$(parse_git_state)"
   #[[ -n "$branch" ]] && prompt_segment red black "$(git_prompt_string)"
 }
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment blue white '%~'
+  prompt_segment green black '%~'
 }
 
 # Status:

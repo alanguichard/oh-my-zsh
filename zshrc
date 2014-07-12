@@ -4,6 +4,8 @@
 # Oh my zsh configuration
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="avp"
+DEFAULT_USER="avp"
+
 DISABLE_AUTO_UPDATE="true"
 
 # Set up plugins
