@@ -3,7 +3,7 @@
 
 # Oh my zsh configuration
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="avp"
+ZSH_THEME="avp-powerline"
 DISABLE_AUTO_UPDATE="true"
 
 # Set up plugins

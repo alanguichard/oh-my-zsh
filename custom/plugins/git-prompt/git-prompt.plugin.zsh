@@ -78,8 +78,8 @@ parse_git_state() {
     GIT_STATE=$GIT_STATE$GIT_PROMPT_STASHED
   fi
 
-  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
+  if ! git diff --cached --quiet 2> /dev/null; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_STAGED
     DIRTY=1
   fi
 
@@ -88,8 +88,8 @@ parse_git_state() {
     DIRTY=1
   fi
 
-  if ! git diff --cached --quiet 2> /dev/null; then
-    GIT_STATE=$GIT_STATE$GIT_PROMPT_STAGED
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
     DIRTY=1
   fi
 
@@ -107,6 +107,6 @@ parse_git_state() {
 git_prompt_string() {
   local git_where="$(parse_git_branch)"
   [ -n "$git_where" ] && \
-    echo "$GIT_PROMPT_SYMBOL$GIT_PROMPT_PREFIX%{$fg[red]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SEPARATOR$(parse_git_state)$GIT_PROMPT_SUFFIX"
+    echo "$GIT_PROMPT_SYMBOL$GIT_PROMPT_PREFIX${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SEPARATOR$(parse_git_state)$GIT_PROMPT_SUFFIX"
 }
 
