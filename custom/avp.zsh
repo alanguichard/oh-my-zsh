@@ -25,6 +25,7 @@ alias gigastorm="cd ~/Dropbox/GigaStorm"
 alias programming="~PROGRAMMING"
 alias pegasus="~PEGASUS"
 alias gemini="~GEMINI"
+alias pg-livereload="livereload ~PEGASUS/server"
 
 pgssh() {
   ssh -A ubuntu@${1}
