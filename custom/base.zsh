@@ -70,6 +70,11 @@ ssl_decrypt() {
   openssl aes-256-cbc -a -d -in $1 -out $2
 }
 
+# Unix time
+unix_time() {
+  echo $1 | gawk '{print strftime("%c", $0)}'
+}
+
 # Randomness functions
 flipcoin() {
   [[ $((RANDOM % 2)) == 0 ]] && echo TAILS || echo HEADS
