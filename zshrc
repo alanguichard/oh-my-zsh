@@ -16,6 +16,7 @@ plugins+=(zsh-syntax-highlighting)
 plugins+=(npm)
 plugins+=(mvn)
 plugins+=(mvn-color)
+plugins+=(gradle)
 plugins+=(sublime)
 plugins+=(colored-man)
 
