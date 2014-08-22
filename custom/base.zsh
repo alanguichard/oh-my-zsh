@@ -25,7 +25,7 @@ bindkey '^K' kill-line
 alias sl="ls"
 alias la="ls -A"
 alias ll="ls -l"
-alias lh="ls -lh"
+alias lh="ls -lhS"
 alias l1="ls -1"
 alias l="ls"
 
@@ -124,6 +124,12 @@ pg_staging_log() {
 
 # Speedtest alias
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+
+# What is my IP
+public_ip() {
+  wget -qO- http://ipecho.net/plain
+  echo
+}
 
 # Manual Package Update and Cleaning
 pkupdate() {

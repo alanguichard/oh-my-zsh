@@ -26,9 +26,17 @@ alias programming="~PROGRAMMING"
 alias pegasus="~PEGASUS"
 alias gemini="~GEMINI"
 alias pg-livereload="livereload ~PEGASUS/server"
+alias elementexplorer="node /usr/local/lib/node_modules/protractor/bin/elementexplorer.js"
 
 pgssh() {
   ssh -A ubuntu@${1}
+}
+
+pgcount() {
+  local dir=$PWD
+  cd $PEGASUS
+  wc -l client/ts/**/*.ts client/ts/**/*.tpl.html client/less/*.less client/test/**/*.js server/src/**/*.java | sort -n
+  cd $dir
 }
 
 # Android aliases
