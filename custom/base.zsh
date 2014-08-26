@@ -31,7 +31,7 @@ alias l="ls"
 
 # Configuration aliases
 alias zshrc="vim ~/.zshrc"
-alias reload="source ~/.zshrc"
+alias shload="source ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 
 # Git aliases
