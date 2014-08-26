@@ -15,7 +15,7 @@ alias ufsafs="umount ~/afs"
 # Important directories
 CMU="$HOME/Dropbox/cmu/"
 PROGRAMMING="$HOME/Dropbox/programming/"
-PEGASUS="$HOME/Dropbox/programming/pegasus/"
+PEGASUS="$HOME/pegasus/"
 AVP42="$HOME/Dropbox/programming/avp42/"
 LYRA="$HOME/Dropbox/programming/lyra/"
 VIM="$HOME/.vim"
@@ -58,7 +58,7 @@ if [[ $(uname) = 'Darwin' ]]; then
 fi
 mysql_reset() {
   local DIR=$(pwd)
-  cd ~/Dropbox/programming/pegasus/tools
+  cd ~PEGASUS/tools
   cat create_tables.sql create_testdata.sql | mysqlu pegasus
   cd $DIR
 }
