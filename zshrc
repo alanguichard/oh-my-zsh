@@ -19,6 +19,9 @@ plugins+=(mvn-color)
 plugins+=(gradle)
 plugins+=(sublime)
 plugins+=(colored-man)
+plugins+=(brew)
+plugins+=(brew-cask)
+plugins+=(debian)
 
 # Activate Oh my zsh
 source $ZSH/oh-my-zsh.sh

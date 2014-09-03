@@ -35,6 +35,11 @@ pgssh() {
 pgcount() {
   local dir=$PWD
   cd $PEGASUS
+  echo "CLIENT:"
+  wc -l client/ts/**/*.ts client/ts/**/*.tpl.html client/less/*.less client/test/**/*.js | sort -n
+  echo "SERVER:"
+  wc -l server/src/**/*.java | sort -n
+  echo "TOTAL:"
   wc -l client/ts/**/*.ts client/ts/**/*.tpl.html client/less/*.less client/test/**/*.js server/src/**/*.java | sort -n
   cd $dir
 }
