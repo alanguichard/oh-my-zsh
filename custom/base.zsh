@@ -51,7 +51,6 @@ alias ip="ifconfig | grep 'inet '"
 alias copy="xclip -selection clipboard"
 alias v="vim"
 alias m="man"
-alias cal='cal | grep --before-context 6 --after-context 6 --color -e " $(date +%e)" -e "^$(date +%e)"'
 
 if [[ $(uname) = 'Linux' ]]; then
   alias open="xdg-open"
@@ -155,11 +154,12 @@ pkupdate() {
 # Pull every git directory in the pwd.
 pull_with_report() {
   local dir
+  local out
   dir="$1"
-  if [[ -d $1/.git ]]; then
+  if [[ -d "$dir/.git" ]]; then
     echo $(echo $dir | sed 's/.|\///g') >&2
   fi
-  out=`git --git-dir=$1/.git --work-tree=$PWD/$1 pull 2>/dev/null`
+  out="$(git --git-dir=$dir/.git --work-tree=$PWD/$dir pull 2>/dev/null)"
   if [[ -n $(echo $out | grep "Already up-to-date") ]]; then
     echo "--- $dir: no changes." >&2
   elif [[ -n $out ]]; then

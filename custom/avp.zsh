@@ -49,10 +49,11 @@ alias droidconnect="sudo mtpfs -o allow_other /media/nexus4"
 alias droiddisconnect="sudo umount /media/nexus4"
 
 # Useful environment variables
-export PATH=$PATH:~/google_appengine
-export PATH=$PATH:~/intellij-idea
-export PATH=$PATH:~/Dropbox/bin
+export PATH=$PATH:$HOME/google_appengine
+export PATH=$PATH:$HOME/intellij-idea
+export PATH=$PATH:$HOME/Dropbox/bin
 export PATH=$PATH:/usr/lib/smlnj/bin
+export PATH=$PATH:$HOME/Library/Haskell/bin
 export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=512m"
 export EDITOR=vim
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
