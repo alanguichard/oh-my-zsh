@@ -9,19 +9,29 @@ DEFAULT_USER="avp"
 DISABLE_AUTO_UPDATE="true"
 
 # Set up plugins
-plugins=()
-plugins+=(git)
-plugins+=(git-prompt)
-plugins+=(zsh-syntax-highlighting)
-plugins+=(npm)
-plugins+=(mvn)
-plugins+=(mvn-color)
-plugins+=(gradle)
-plugins+=(sublime)
-plugins+=(colored-man)
-plugins+=(brew)
-plugins+=(brew-cask)
-plugins+=(debian)
+plugins=(
+  bower
+  brew
+  brew-cask
+  cabal
+  colored-man
+  cp
+  debian
+  git
+  git-prompt
+  gradle
+  mvn
+  mvn-color
+  npm
+  osx
+  python
+  screen
+  sublime
+  sudo
+  tmux
+  zsh-syntax-highlighting
+  zsh_reload
+)
 
 # Activate Oh my zsh
 source $ZSH/oh-my-zsh.sh
