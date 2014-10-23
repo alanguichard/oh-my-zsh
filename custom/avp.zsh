@@ -2,6 +2,8 @@
 alias lh="ll -h"
 alias irc="screen -rd irc"
 alias sml="rlwrap sml"
+alias prolog="rlwrap gprolog"
+alias twelf="rlwrap twelf-server"
 alias mr="make run"
 alias mysqlu="mysql -u root"
 alias vimrc="vim ~/.vim/vimrc"
