@@ -63,6 +63,7 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 if [[ $(uname) = 'Darwin' ]]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
   alias mysql_start="mysqld_safe"
+  alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 fi
 mysql_reset() {
   local DIR=$(pwd)
