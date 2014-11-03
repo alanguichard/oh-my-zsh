@@ -51,12 +51,11 @@ alias ip="ifconfig | grep 'inet '"
 alias copy="xclip -selection clipboard"
 alias v="vim"
 alias m="man"
+alias mk="make"
 
 if [[ $(uname) = 'Linux' ]]; then
   alias open="xdg-open"
-fi
-
-if [[ $(uname) = 'Darwin' ]]; then
+elif [[ $(uname) = 'Darwin' ]]; then
   alias top="top -o cpu"
   alias sort="gsort"
 fi
