@@ -56,11 +56,16 @@ export PATH=$PATH:$HOME/intellij-idea
 export PATH=$PATH:$HOME/Dropbox/bin
 export PATH=$PATH:/usr/lib/smlnj/bin
 export PATH=$PATH:$HOME/Library/Haskell/bin
+export PATH=$PATH:$HOME/.cabal/bin
 export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=512m"
 export EDITOR=vim
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
-if [[ $(uname) = 'Darwin' ]]; then
+if [[ "$(uname)" = 'Linux' ]]; then
+  export TERM='xterm-256color'
+fi
+
+if [[ "$(uname)" = 'Darwin' ]]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
   alias mysql_start="mysqld_safe"
   alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
