@@ -41,8 +41,13 @@ alias commit="git commit"
 alias pull="git pull"
 groot() {
   local groot_dir="$(git rev-parse --show-toplevel)"
-  [[ -n ${groot_dir} ]] && cd groot_dir
+  [[ -n "${groot_dir}" ]] && cd "${groot_dir}"
 }
+
+# Make aliases
+alias mk="make"
+alias mkc="make clean"
+alias mkb="make -B"
 
 # Miscellaneous aliases
 alias more="less"
@@ -51,7 +56,6 @@ alias ip="ifconfig | grep 'inet '"
 alias copy="xclip -selection clipboard"
 alias v="vim"
 alias m="man"
-alias mk="make"
 
 if [[ $(uname) = 'Linux' ]]; then
   alias open="xdg-open"
