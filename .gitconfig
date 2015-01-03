@@ -1,0 +1,21 @@
+[user]
+	name = Aakash Patel
+	email = aakpat6@gmail.com
+[core]
+	editor = vim
+	excludesfile = /Users/avp/.gitignore
+[color]
+	ui = true
+[alias]
+	b = branch
+	co = checkout
+	st = status
+	sm = submodule
+[push]
+	default = simple
+[oh-my-zsh]
+	hide-status = 1
+[github]
+	user = avp
+[init]
+	templatedir = ~/.git_template
