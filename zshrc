@@ -16,7 +16,6 @@ plugins=(
   cabal
   colored-man
   cp
-  debian
   git
   git-prompt
   gradle

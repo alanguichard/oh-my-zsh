@@ -71,6 +71,7 @@ if [[ "$(uname)" = 'Darwin' ]]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
   alias mysql_start="mysqld_safe"
   alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
+  alias gdb="sudo gdb"
 fi
 mysql_reset() {
   local DIR=$(pwd)
