@@ -181,16 +181,6 @@ pulls() {
   )
 }
 
-# Define Color Variables for later usage
-c_red=$(tput setaf 1)
-c_green=$(tput setaf 2)
-c_yellow=$(tput setaf 3)
-c_blue=$(tput setaf 4)
-c_purple=$(tput setaf 5)
-c_cyan=$(tput setaf 6)
-c_white=$(tput setaf 7)
-c_reset=$(tput sgr0)
-
 # Make .zsh_history store more and not store duplicates
 export HISTCONTROL=ignoreboth
 export HISTSIZE=100000
