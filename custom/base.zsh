@@ -136,21 +136,29 @@ public_ip() {
 
 # Manual Package Update and Cleaning
 pkupdate() {
-  sudo echo "Arguments: $@"
   Time="$(date +%s)"
-  echo -e "Starting Package Update\n"
-  echo -e "\nUpdating Repositories\n"
-  sudo apt-get $@ update
-  echo -e "\nUpdating Packages\n"
-  sudo apt-get $@ upgrade
-  echo -e "\nUpdating Distribution Packages\n"
-  sudo apt-get $@ dist-upgrade
-  echo -e "\nRemoving Unnecessary Packages\n"
-  sudo apt-get $@ autoremove --purge
-  echo -e "\nAutocleaning Package Download Files\n"
-  sudo apt-get $@ autoclean
-  echo -e "\nCleaning Package Download Files\n"
-  sudo apt-get $@ clean
+  if [[ "$(uname -s )" = "Linux" ]]; then
+    sudo echo "Arguments: $@"
+    echo -e "Starting Package Update\n"
+    echo -e "\nUpdating Repositories\n"
+    sudo apt-get $@ update
+    echo -e "\nUpdating Packages\n"
+    sudo apt-get $@ upgrade
+    echo -e "\nUpdating Distribution Packages\n"
+    sudo apt-get $@ dist-upgrade
+    echo -e "\nRemoving Unnecessary Packages\n"
+    sudo apt-get $@ autoremove --purge
+    echo -e "\nAutocleaning Package Download Files\n"
+    sudo apt-get $@ autoclean
+    echo -e "\nCleaning Package Download Files\n"
+    sudo apt-get $@ clean
+  elif [[ "$(uname -s)" = "Darwin" ]]; then
+    echo "Updating Homebrew recipes"
+    brew update
+    echo "Upgrading Homebrew packages"
+    brew upgrade
+  fi
+
   Time="$(($(date +%s) - Time))"
   echo -e "\nPackage Update Complete. Time Elapsed: ${Time}s"
 }
