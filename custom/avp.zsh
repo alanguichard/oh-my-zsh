@@ -69,6 +69,8 @@ fi
 
 if [[ "$(uname)" = 'Darwin' ]]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
+  export XLISPPATH=`pwd`/runtime:`pwd`/lib
+  alias nyquist="/Applications/NyquistIDE.app/Contents/Resources/Java/ny"
   alias mysql_start="mysqld_safe"
   alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
   alias gdb="sudo gdb"
@@ -85,4 +87,3 @@ wacom() {
   xsetwacom --set 19 Button 1 "key ctrl z"
   xsetwacom --set "Wacom Bamboo 16FG 4x5 Finger touch" touch off
 }
-
