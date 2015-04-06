@@ -65,6 +65,8 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
 if [[ "$(uname)" = 'Linux' ]]; then
   export TERM='xterm-256color'
+  export PATH=$PATH:/opt/cuda/bin
+  export CUDA_BIN_PATH=/opt/cuda/bin
 fi
 
 if [[ "$(uname)" = 'Darwin' ]]; then
