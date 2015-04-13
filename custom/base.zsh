@@ -30,9 +30,7 @@ alias l1="ls -1"
 alias l="ls"
 
 # Configuration aliases
-alias zshrc="vim ~/.zshrc"
 alias shload="source ~/.zshrc"
-alias vimrc="vim ~/.vimrc"
 
 # Git aliases
 alias tigs="tig status"
@@ -154,10 +152,15 @@ pkupdate() {
     echo -e "\nCleaning Package Download Files\n"
     sudo apt-get $@ clean
   elif [[ "$(uname -s)" = "Darwin" ]]; then
-    echo "Updating Homebrew recipes"
+    echo -e "Updating Homebrew recipes"
     brew update
-    echo "Upgrading Homebrew packages"
+    echo -e "\nUpgrading Homebrew packages"
     brew upgrade
+    echo -e "\nUpdating Homebrew casks"
+    brew cask update
+    echo -e "\nCleaning up"
+    brew cleanup
+    brew cask cleanup
   fi
 
   Time="$(($(date +%s) - Time))"

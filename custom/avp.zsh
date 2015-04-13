@@ -1,6 +1,4 @@
 # Miscellaneous aliases
-alias lh="ll -h"
-alias irc="screen -rd irc"
 alias sml="rlwrap sml"
 alias prolog="rlwrap gprolog"
 alias twelf="rlwrap twelf-server"
@@ -8,7 +6,6 @@ alias mr="make run"
 alias mysqlu="mysql -u root"
 alias vimrc="vim ~/.vim/vimrc"
 alias copy="xclip -selection clipboard"
-alias add="git add"
 
 # AFS Mount points
 alias fsafs="sshfs avpatel@unix.andrew.cmu.edu: ~/afs"
@@ -37,7 +34,7 @@ pgssh() {
 }
 
 pgcount() {
-  local dir=$PWD
+  local dir="$PWD"
   cd $PEGASUS
   echo "CLIENT:"
   wc -l client/ts/**/*.ts client/ts/**/*.tpl.html client/less/*.less client/test/**/*.js | sort -n
@@ -59,9 +56,9 @@ export PATH=$PATH:$HOME/Dropbox/bin
 export PATH=$PATH:/usr/lib/smlnj/bin
 export PATH=$PATH:$HOME/Library/Haskell/bin
 export PATH=$PATH:$HOME/.cabal/bin
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=512m"
+export MAVEN_OPTS="-Xmx512m"
 export EDITOR=vim
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
+# export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
 if [[ "$(uname)" = 'Linux' ]]; then
   export TERM='xterm-256color'
@@ -71,14 +68,12 @@ fi
 
 if [[ "$(uname)" = 'Darwin' ]]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
-  export XLISPPATH=`pwd`/runtime:`pwd`/lib
-  alias nyquist="/Applications/NyquistIDE.app/Contents/Resources/Java/ny"
   alias mysql_start="mysqld_safe"
   alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
   alias gdb="sudo gdb"
 fi
 mysql_reset() {
-  local DIR=$(pwd)
+  local DIR="$PWD"
   cd ~PEGASUS/tools
   cat create_tables.sql create_testdata.sql | mysqlu pegasus
   cd $DIR
