@@ -64,6 +64,7 @@ if [[ "$(uname)" = 'Linux' ]]; then
   export TERM='xterm-256color'
   export PATH=$PATH:/opt/cuda/bin
   export CUDA_BIN_PATH=/opt/cuda/bin
+  export OpenCV_DIR=/usr/share/opencv
 fi
 
 if [[ "$(uname)" = 'Darwin' ]]; then
