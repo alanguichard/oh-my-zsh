@@ -155,7 +155,7 @@ pkupdate() {
     echo -e "Updating Homebrew recipes"
     brew update
     echo -e "\nUpgrading Homebrew packages"
-    brew upgrade
+    brew upgrade --all
     echo -e "\nUpdating Homebrew casks"
     brew cask update
     echo -e "\nCleaning up"
