@@ -1,7 +1,9 @@
 #!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
 
 # Install homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || true
 
 # Setup packages
 brew update
@@ -12,7 +14,6 @@ brew install atool
 brew install binutils
 brew install cabal-install
 brew install cctools
-brew install chktex
 brew install cmake
 brew install coreutils
 brew install ctags
@@ -25,12 +26,12 @@ brew install ghc
 brew install gist
 brew install git
 brew install gnutls
+brew install grc
 brew install htop-osx
 brew install imagemagick
 brew install jpeg
 brew install macvim
 brew install maven
-brew install mercurial
 brew install multitail
 brew install node
 brew install openssl
@@ -38,14 +39,11 @@ brew install pcre
 brew install pkg-config
 brew install prettyping
 brew install protobuf
-brew install python
-brew install python3
 brew install q
 brew install readline
 brew install rlwrap
 brew install smlnj
 brew install sqlite
-brew install sshfs
 brew install the_silver_searcher
 brew install tig
 brew install tmux
@@ -62,5 +60,7 @@ brew linkapps
 # Install Haskell packages
 cabal update
 cabal install happy
-cabal install ghc-mod
 cabal install hdevtools
+
+git clone https://github.com/kazu-yamamoto/ghc-mod /tmp/ghc-mod
+cabal install /tmp/ghc-mod
