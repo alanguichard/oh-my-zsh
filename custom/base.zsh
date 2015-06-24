@@ -57,9 +57,9 @@ alias copy="xclip -selection clipboard"
 alias v="vim"
 alias m="man"
 
-if [[ $(uname) = 'Linux' ]]; then
+if [[ "$(uname)" = 'Linux' ]]; then
   alias open="xdg-open"
-elif [[ $(uname) = 'Darwin' ]]; then
+elif [[ "$(uname)" = 'Darwin' ]]; then
   alias top="top -o cpu"
   alias sort="gsort"
 fi
@@ -216,7 +216,7 @@ alias cc='gcc -Wall -W -ansi -pedantic -O2 '
 alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
 
 # Enable color support of ls and also add handy aliases
-if [[ `uname` = 'Darwin' ]]; then
+if [[ "$(uname)" = 'Darwin' ]]; then
   alias ls='gls --color=auto'
 else
   alias ls='ls --color=auto'
