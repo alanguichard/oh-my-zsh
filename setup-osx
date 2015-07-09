@@ -27,6 +27,7 @@ brew install imagemagick
 brew install jpeg
 brew install macvim
 brew install maven
+brew install mosh
 brew install multitail
 brew install node
 brew install openssl
