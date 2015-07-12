@@ -15,6 +15,7 @@ plugins=(
   brew-cask
   cabal
   colored-man
+  colorize
   cp
   git
   git-prompt
