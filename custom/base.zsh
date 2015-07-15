@@ -9,6 +9,9 @@ unsetopt SHARE_HISTORY
 autoload -U zmv
 autoload -U zargs
 
+# Fix flow control
+stty -ixon
+
 ## Completions
 autoload -U compinit
 compinit -C
