@@ -7,6 +7,10 @@ DIR=$(pwd)
 git submodule update --init
 
 cd ..
-ln -i -s $DIR/zshrc $HOME/.zshrc
-ln -i -s $DIR/.gitconfig $HOME/.gitconfig
-ln -i -s $DIR/.tmux.conf $HOME/.tmux.conf
+ln -i -s "$DIR/zshrc" "$HOME/.zshrc"
+ln -i -s "$DIR/.gitconfig" "$HOME/.gitconfig"
+ln -i -s "$DIR/.tmux.conf" "$HOME/.tmux.conf"
+
+# tmux
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
