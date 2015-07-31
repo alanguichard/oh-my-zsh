@@ -1,6 +1,7 @@
 # Shell options
 setopt AUTO_CD
 setopt EXTENDED_GLOB
+setopt NO_NOMATCH
 setopt SHORT_LOOPS
 
 unsetopt SHARE_HISTORY
