@@ -24,33 +24,8 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^K' kill-line
 
-# ls aliases
-alias sl="ls"
-alias la="ls -A"
-alias ll="ls -l"
-alias lh="ls -lhS"
-alias l1="ls -1"
-alias l="ls"
-
 # Configuration aliases
 alias shload="source ~/.zshrc"
-
-# Git aliases
-alias tigs="tig status"
-alias amend="git commit --amend"
-alias commit="git commit"
-alias pull="git pull"
-alias gbi="git bisect"
-groot() {
-  local groot_dir="$(git rev-parse --show-toplevel)"
-  [[ -n "${groot_dir}" ]] && cd "${groot_dir}"
-}
-
-# Make aliases
-alias mk="make"
-alias mkc="make clean"
-alias mkck="make check"
-alias mkb="make -B"
 
 # Miscellaneous aliases
 alias more="less"
@@ -80,19 +55,6 @@ unix_time() {
   echo $1 | gawk '{print strftime("%c", $0)}'
 }
 
-# Randomness functions
-flipcoin() {
-  [[ $((RANDOM % 2)) == 0 ]] && echo TAILS || echo HEADS
-}
-rolldie() {
-  if [[ -n "$1" ]]; then
-    SIDES="$1"
-  else
-    SIDES=6
-  fi
-  echo $((RANDOM % $SIDES))
-}
-
 # Fun bit of information
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN {FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 30 | sort -rn"
 
@@ -110,16 +72,6 @@ title "zsh"
 # pyserver port sets up the server on port, with default port 8000.
 pyserver() {
   python -m SimpleHTTPServer $1
-}
-
-# Given an input n, gives a random string of length n.
-# If no input supplied, generates a 64 character string.
-randgen() {
-  if [[ $# -eq 0 ]]; then
-    openssl rand -hex 32
-  else
-    openssl rand -hex $1 | cut -c1-$1
-  fi
 }
 
 # Tomcat logs
@@ -170,32 +122,6 @@ pkupdate() {
   echo -e "\nPackage Update Complete. Time Elapsed: ${Time}s"
 }
 
-# Pull every git directory in the pwd.
-pull_with_report() {
-  local dir
-  local out
-  dir="$1"
-  if [[ -d "$dir/.git" ]]; then
-    echo $(echo $dir | sed 's/.|\///g') >&2
-  fi
-  out="$(git --git-dir=$dir/.git --work-tree=$PWD/$dir pull 2>/dev/null)"
-  if [[ -n $(echo $out | grep "Already up-to-date") ]]; then
-    echo "--- $dir: no changes." >&2
-  elif [[ -n $out ]]; then
-    echo "+++ $dir: pulled changes." >&2
-  fi
-}
-
-pulls() {
-  $(
-  local dirs
-  for dir in */; do
-    pull_with_report "$dir" > /dev/null &
-  done
-  wait
-  )
-}
-
 # Make .zsh_history store more and not store duplicates
 export HISTCONTROL=ignoreboth
 export HISTSIZE=100000
@@ -205,30 +131,21 @@ export HISTFILESIZE=100000
 [ -x /usr/bin/lesspipe.sh ] && export LESSOPEN="|/usr/bin/lesspipe.sh %s"
 
 # Alias definitions.
+alias a='alias'
 alias killz='killall -9 '
 alias hidden='ls -a | grep "^\..*"'
 alias rm='rm -i'
 alias shell='ps -p $$ -o comm='
-alias sml='rlwrap sml'
 alias math='rlwrap MathKernel'
-alias coin='rlwrap coin'
-alias a='alias'
-
-# C Aliases
-alias cc='gcc -Wall -W -ansi -pedantic -O2 '
-alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
-
-# Enable color support of ls and also add handy aliases
-if [[ "$(uname)" = 'Darwin' ]]; then
-  alias ls='gls --color=auto'
-else
-  alias ls='ls --color=auto'
-fi
 alias grep='grep --color=auto'
 
+# C Aliases
+alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
+
 # Useful Functions
-qdict(){ grep $1 /usr/share/dict/words; }
+qdict() {
+  grep "$1" /usr/share/dict/words
+}
 
 # Turn off the ability for other people to message your terminal using wall or write
 mesg n
-

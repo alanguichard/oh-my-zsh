@@ -1,5 +1,6 @@
 # Miscellaneous aliases
 alias sml="rlwrap sml"
+alias coin="rlwrap coin"
 alias prolog="rlwrap gprolog"
 alias twelf="rlwrap twelf-server"
 alias mr="make run"

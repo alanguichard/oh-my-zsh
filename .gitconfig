@@ -19,3 +19,9 @@
 	user = avp
 [init]
 	templatedir = ~/.git_template
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[pager]
+  diff =

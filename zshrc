@@ -20,11 +20,14 @@ plugins=(
   git
   git-prompt
   gradle
+  ls
+  make
   mvn
   mvn-color
   npm
   osx
   python
+  random
   screen
   sublime
   sudo
