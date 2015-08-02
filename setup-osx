@@ -9,41 +9,44 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 brew update
 echo 'Installing packages...'
 
-brew install ack
-brew install atool
-brew install binutils
-brew install cabal-install
-brew install cctools
-brew install cmake
-brew install coreutils
-brew install ctags
-brew install curl
-brew install dos2unix
-brew install entr
-brew install ghc
-brew install gist
-brew install git
-brew install imagemagick
-brew install jpeg
-brew install macvim
-brew install maven
-brew install mosh
-brew install multitail
-brew install node
-brew install openssl
-brew install prettyping
-brew install q
-brew install readline
-brew install rlwrap
-brew install speedtest-cli
-brew install sqlite
-brew install the_silver_searcher
-brew install tig
-brew install tmux
-brew install vim
-brew install wget
-brew install zsh
+packages=(
+ack
+atool
+binutils
+cabal-install
+cctools
+cmake
+coreutils
+ctags
+curl
+dos2unix
+entr
+ghc
+gist
+git
+imagemagick
+jpeg
+macvim
+maven
+mosh
+multitail
+node
+openssl
+prettyping
+q
+readline
+rlwrap
+speedtest-cli
+sqlite
+the_silver_searcher
+tig
+tmux
+vim
+wget
+zsh
+)
 
+brew install ${packages[@]}
 brew install caskroom/cask/brew-cask
 
 # Link
@@ -56,3 +59,6 @@ cabal install hdevtools
 
 git clone https://github.com/kazu-yamamoto/ghc-mod /tmp/ghc-mod
 cabal install /tmp/ghc-mod
+
+sudo -H pip install pygments
+sudo -H pip install ptpython
