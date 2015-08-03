@@ -29,12 +29,20 @@ bindkey '^K' kill-line
 alias shload="source ~/.zshrc"
 
 # Miscellaneous aliases
-alias more="less"
-alias dirstat="du -d 1 -h | sort -hr | head -n 11"
-alias ip="ifconfig | grep 'inet '"
+alias a='alias'
 alias copy="xclip -selection clipboard"
-alias v="vim"
+alias dirstat="du -d 1 -h | sort -hr | head -n 11"
+alias grep='grep --color=auto'
+alias hidden='ls -a | grep "^\..*"'
+alias ip="ifconfig | grep 'inet '"
+alias killz='killall -9 '
 alias m="man"
+alias math='rlwrap MathKernel'
+alias more="less"
+alias rm='rm -i'
+alias shell='ps -p $$ -o comm='
+alias v="vim"
+
 
 if [[ "$(uname)" = 'Linux' ]]; then
   alias open="xdg-open"
@@ -42,14 +50,6 @@ elif [[ "$(uname)" = 'Darwin' ]]; then
   alias top="top -o cpu"
   alias sort="gsort"
 fi
-
-# Encryption functions
-ssl_encrypt() {
-  openssl aes-256-cbc -a -salt -in $1 -out $2
-}
-ssl_decrypt() {
-  openssl aes-256-cbc -a -d -in $1 -out $2
-}
 
 # Unix time
 unix_time() {
@@ -130,15 +130,6 @@ export HISTFILESIZE=100000
 
 # Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe.sh ] && export LESSOPEN="|/usr/bin/lesspipe.sh %s"
-
-# Alias definitions.
-alias a='alias'
-alias killz='killall -9 '
-alias hidden='ls -a | grep "^\..*"'
-alias rm='rm -i'
-alias shell='ps -p $$ -o comm='
-alias math='rlwrap MathKernel'
-alias grep='grep --color=auto'
 
 # C Aliases
 alias valgrind-leak='valgrind --leak-check=full --show-reachable=yes'
