@@ -1,3 +1,6 @@
+# Source original git plugin and add our own customizations
+source "$ZSH/plugins/git/git.plugin.zsh"
+
 # Git aliases
 alias tigs="tig status"
 alias gds="git diff --stat"
