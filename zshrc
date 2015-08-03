@@ -10,6 +10,7 @@ DISABLE_AUTO_UPDATE="true"
 
 # Set up plugins
 plugins=(
+  android
   bower
   brew
   brew-cask

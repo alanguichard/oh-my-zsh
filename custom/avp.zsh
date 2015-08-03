@@ -5,6 +5,7 @@ alias prolog="rlwrap gprolog"
 alias twelf="rlwrap twelf-server"
 alias mr="make run"
 alias mysqlu="mysql -u root"
+alias mycliu="mycli -u root"
 alias vimrc="vim ~/.vim/vimrc"
 alias copy="xclip -selection clipboard"
 
@@ -15,9 +16,8 @@ alias ufsafs="umount ~/afs"
 # Important directories
 CMU="$HOME/Dropbox/cmu/"
 PROGRAMMING="$HOME/Dropbox/programming/"
+DEV="$HOME/dev"
 PEGASUS="$HOME/pegasus/"
-AVP42="$HOME/Dropbox/programming/avp42/"
-LYRA="$HOME/Dropbox/programming/lyra/"
 ARGUS="$HOME/dev/argus"
 VIM="$HOME/.vim"
 
@@ -26,7 +26,6 @@ alias gigastorm="cd ~/Dropbox/GigaStorm"
 alias programming="~PROGRAMMING"
 alias pegasus="~PEGASUS"
 alias argus="~ARGUS"
-alias gemini="~GEMINI"
 alias pg-livereload="livereload ~PEGASUS/server"
 alias elementexplorer="node /usr/local/lib/node_modules/protractor/bin/elementexplorer.js"
 
@@ -46,26 +45,22 @@ pgcount() {
   cd $dir
 }
 
-# Android aliases
-alias droidconnect="sudo mtpfs -o allow_other /media/nexus4"
-alias droiddisconnect="sudo umount /media/nexus4"
-
 # Useful environment variables
-export PATH=$PATH:$HOME/google_appengine
-export PATH=$PATH:$HOME/intellij-idea
-export PATH=$PATH:$HOME/Dropbox/bin
-export PATH=$PATH:/usr/lib/smlnj/bin
-export PATH=$PATH:$HOME/Library/Haskell/bin
-export PATH=$PATH:$HOME/.cabal/bin
+export PATH="$PATH:$HOME/google_appengine"
+export PATH="$PATH:$HOME/intellij-idea"
+export PATH="$PATH:$HOME/Dropbox/bin"
+export PATH="$PATH:/usr/lib/smlnj/bin"
+export PATH="$PATH:$HOME/Library/Haskell/bin"
+export PATH="$PATH:$HOME/.cabal/bin"
 export MAVEN_OPTS="-Xmx512m"
-export EDITOR=vim
+export EDITOR="vim"
 # export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages
 
 if [[ "$(uname)" = 'Linux' ]]; then
   export TERM='xterm-256color'
-  export PATH=$PATH:/opt/cuda/bin
-  export CUDA_BIN_PATH=/opt/cuda/bin
-  export OpenCV_DIR=/usr/share/opencv
+  export PATH="$PATH:/opt/cuda/bin"
+  export CUDA_BIN_PATH="/opt/cuda/bin"
+  export OpenCV_DIR="/usr/share/opencv"
 fi
 
 if [[ "$(uname)" = 'Darwin' ]]; then
@@ -74,6 +69,7 @@ if [[ "$(uname)" = 'Darwin' ]]; then
   alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
   alias gdb="sudo gdb"
 fi
+
 mysql_reset() {
   local DIR="$PWD"
   cd ~PEGASUS/tools
