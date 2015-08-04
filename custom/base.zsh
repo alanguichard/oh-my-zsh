@@ -43,7 +43,6 @@ alias rm='rm -i'
 alias shell='ps -p $$ -o comm='
 alias v="vim"
 
-
 if [[ "$(uname)" = 'Linux' ]]; then
   alias open="xdg-open"
 elif [[ "$(uname)" = 'Darwin' ]]; then

@@ -2,8 +2,8 @@
 [ -z "$PS1" ] && return
 
 # Oh my zsh configuration
-ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="avp"
+ZSH="$HOME/.oh-my-zsh"
 DEFAULT_USER="avp"
 
 DISABLE_AUTO_UPDATE="true"
@@ -18,6 +18,7 @@ plugins=(
   colored-man
   colorize
   cp
+  crypto
   git
   git-prompt
   gradle
@@ -38,5 +39,5 @@ plugins=(
 )
 
 # Activate Oh my zsh
-source $ZSH/oh-my-zsh.sh
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+source "$ZSH/oh-my-zsh.sh"
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
