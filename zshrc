@@ -2,8 +2,8 @@
 [ -z "$PS1" ] && return
 
 # Oh my zsh configuration
-ZSH_THEME="avp"
 ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="avp-powerline"
 DEFAULT_USER="avp"
 
 DISABLE_AUTO_UPDATE="true"
