@@ -6,7 +6,8 @@ IFS=$'\n\t'
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || true
 
 # Setup packages
-brew update
+echo 'Updating packages...'
+brew update --verbose
 echo 'Installing packages...'
 
 packages=(
